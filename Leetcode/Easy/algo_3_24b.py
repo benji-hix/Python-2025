@@ -21,7 +21,6 @@ def two_sum(nums: list[int], target: int) -> list[int]:
             return [index, target_index]
     return None
 
-
 # Optimized version using dictionary
 def two_sum_optimized(nums: list[int], target: int) -> list[int]:
     '''
