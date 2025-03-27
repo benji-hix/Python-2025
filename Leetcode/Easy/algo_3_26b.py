@@ -37,12 +37,11 @@ def longest_common_prefix(strs: list[str]) -> str:
 
 # Optimized Solution
 def longest_common_prefix_optimized(words: list[str]) -> str:
-    ans=""
+    ans=''
     sorted_words = sorted(words)
-    print("Sorted:")
-    print(sorted_words)
     first=sorted_words[0]
     last=sorted_words[-1]
+
     for i in range(min(len(first),len(last))):
         if(first[i]!=last[i]):
             return ans
