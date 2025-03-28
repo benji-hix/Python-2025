@@ -2,16 +2,24 @@
 
 
 def test_valid_parentheses(s: str) -> bool:
-    dict = {
+    """Check a string for sets of complete parentheses.
+
+    Args:
+        s (str): Str containing some number of parentheses.
+
+    Returns:
+        bool: True or false depending on whether parentheses match criteria.
+    """
+    parentheses_key = {
         '(' : ')',
         '[' : ']',
         '{' : '}'
     }
     stack = []
     for char in s:
-        if char in dict.keys():
-            stack += dict[char]
-        if char in dict.values():
+        if char in parentheses_key:
+            stack += parentheses_key[char]
+        if char in parentheses_key.values():
             if stack.pop() != char:
                 return False
     return stack == []
