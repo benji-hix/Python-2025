@@ -32,7 +32,8 @@ def longest_common_prefix(strs: list[str]) -> str:
     for character_index in range(0, end_index):
         if compare_letter(character_index, strs, compare[character_index]):
             output += compare[character_index]
-        else: break
+        else: 
+            break
     return output
 
 # Optimized Solution
