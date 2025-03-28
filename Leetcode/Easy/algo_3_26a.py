@@ -1,7 +1,5 @@
 """Roman to Integer"""
 
-import numbers
-
 # O(N) Solution
 def roman_to_integer(s: str) -> int:
     """
@@ -41,4 +39,36 @@ def roman_to_integer(s: str) -> int:
             number += roman_values[character]
     return number
 
-print(roman_to_integer('LVIII'))
+
+# Optimized version
+def roman_to_integer_v2(number: str) -> int:
+    """
+    Convert a roman numeral string to equivalent integer value.
+
+    Args:
+        number (str): Number written in roman numeral form.
+
+    Returns:
+        int: Number in integer form.
+    """
+    roman_values = {
+    'I' : 1,
+    'V' : 5,
+    'X' : 10,
+    'L' : 50,
+    'C' : 100,
+    'D' : 500,
+    'M' : 1000
+    }
+    output = 0
+    previous_value = 0
+    for character in number[::-1]:
+        current_value = roman_values[character]
+        if current_value < previous_value:
+            output -= current_value
+        else:
+            output += current_value
+        previous_value = current_value
+    return output
+
+print(roman_to_integer_v2('MCMXCIV'))
