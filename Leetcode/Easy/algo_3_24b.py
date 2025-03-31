@@ -1,4 +1,4 @@
-''' Two Sum'''
+'''Two Sum'''
 
 
 def two_sum(nums: list[int], target: int) -> list[int]:
@@ -21,7 +21,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
             return [index, target_index]
     return None
 
-# Optimized version using dictionary
+# Optimized version  using dictionary
 def two_sum_optimized(nums: list[int], target: int) -> list[int]:
     '''
     Find the indexes of two integers whose sum is a given integer.
