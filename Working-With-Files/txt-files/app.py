@@ -2,7 +2,7 @@ from pathlib import Path
 
 # reading files
 
-def create_path():
+def create_path() -> Path:
     script_dir = Path(__file__).parent
     path = script_dir / 'monsters'
 
@@ -16,7 +16,7 @@ def create_path():
 
     return path
 
-def read_file():
+def read_file() -> None:
     path = Path(__file__).parent
     selected_file = input('What monster are you looking for?')
     path = path / 'Monsters' / selected_file
@@ -30,12 +30,23 @@ def read_file():
         file.close()
     except FileNotFoundError as error:
         print(f'{path} does not exist.')
-
+    except Exception as e:
+        print(f'Unexpected error: {e}')
     return
 
 monsters = ['Jin Dahaad', 'Rompoplo', 'Arkveld']
 
-def write_monsters_to_file(filename: str):
+def open_via_context_manager():
+    path = Path(__file__).parent / 'monsters' / 'monsters.txt'
+    data = ['Lagiacrus', 'Gigginox', 'Bazelgeuse']
+
+    with path.open('w') as file:
+        for monster in data:
+            file.write(monster + '\n')
+
+
+
+def write_monsters_to_file(filename: str) -> None:
     # open file
     file = open(filename, 'w+')
 
@@ -50,7 +61,7 @@ def write_monsters_to_file(filename: str):
 
 final_monster = ['Xo Shia']
 
-def append_to_file(filename: str):
+def append_to_file(filename: str) -> None:
     file = open(filename, 'a')
 
     for monster in final_monster:
@@ -59,10 +70,10 @@ def append_to_file(filename: str):
     file.close()
     return
 
+# Context Managers --> auto closes
 
-def main():
-    create_path()
-    read_file()
+def main() -> None:
+    open_via_context_manager()
     return
 
 if __name__ == "__main__":
