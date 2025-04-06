@@ -20,3 +20,5 @@ def create_excel(filename: str = 'output.xlsx', sheet_title: str = 'DataSheet') 
         ws.append(row)
 
     wb.save(filename)
+
+    return wb
