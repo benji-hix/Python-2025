@@ -1,6 +1,4 @@
-from read import open_workbook, get_path
-from pathlib import Path
-from openpyxl import Workbook
+from read import open_workbook
 
 def main() -> None:
     open_workbook()

@@ -1,17 +1,16 @@
 """Read/Write Excel File"""
 
-from msilib.schema import File
 from openpyxl import Workbook, load_workbook
 from pathlib import Path
 
 def get_path() -> Path:
     while True:
         try:
-            dir_str = input(f'\n| Paste directory path:\n| ').strip('"').strip("'")
+            dir_str = input('\n| Paste directory path:\n| ').strip('"').strip("'")
             target_dir = Path(dir_str)
             if not target_dir.is_dir():
                 raise FileNotFoundError(f'| The directory {dir_str} does not exist.')
-            print(f'| Directory loaded successfully.')
+            print('| Directory loaded successfully.')
             break
 
         except FileNotFoundError as e:
@@ -24,7 +23,7 @@ def print_dir_files(dir: Path) -> None:
         f for f in dir.iterdir() 
         if f.is_file() and f.suffix == '.xlsx' and not f.name.startswith('~$')
         ] 
-    print(f'| Files found:')
+    print('| Files found:')
     for f in dir_files:
         print(f'    | {f.name}')
     return None
@@ -49,7 +48,7 @@ def get_wksheet(wkbk_name: str, dir: Path) -> Workbook:
     for s in workbook.sheetnames:
         print(f'    | {s}')
 
-    sheet_name = input(f'\n| Select worksheet:\n| ')
+    sheet_name = input('\n| Select worksheet:\n| ')
     sheet = workbook[f'{sheet_name}']
     print(f'| {sheet_name} loaded successfully.')
     return sheet
@@ -69,6 +68,6 @@ def open_workbook(wkbk_name: str='') -> Workbook:
 
     wkbk_name = get_wkbk(dir)
 
-    wksht_name = get_wksheet(wkbk_name, dir)
+    wksht = get_wksheet(wkbk_name, dir)
 
     print('\n')
