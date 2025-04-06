@@ -1,7 +1,7 @@
-from read import open_workbook
+from read import open_spreadsheet
 
 def main() -> None:
-    open_workbook()
+    open_spreadsheet()
 
 if __name__ == "__main__":
     main()
