@@ -1,4 +1,4 @@
-from read import open_spreadsheet
+from open import open_spreadsheet
 
 def main() -> None:
     open_spreadsheet()
